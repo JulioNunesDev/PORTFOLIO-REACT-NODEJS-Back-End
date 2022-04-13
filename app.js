@@ -34,6 +34,7 @@ app.post('/opinios', async(req, res)=>{
         
     } catch (error) {
       
+
      res.status(500).json({error: error})
        
     }
@@ -42,9 +43,9 @@ app.post('/opinios', async(req, res)=>{
 
 
 
+const port = process.env.PORT || 3001
 
-
-app.listen(3001, ()=>{
+app.listen(port, ()=>{
     console.log('Rota aberta!')
 })
 
