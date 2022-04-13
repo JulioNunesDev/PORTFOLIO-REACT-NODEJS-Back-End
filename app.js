@@ -15,7 +15,7 @@ app.use(cors())
 
 
 
-app.get('/opinio', async(req, res)=>{
+app.get('/', async(req, res)=>{
 
     OpiniosDate.find({},(error, result)=>{
         if(error) return res.send(error)
