@@ -1,5 +1,4 @@
 const express = require('express')
-const { find } = require('./models/opinios')
 const app = express()
 require('./config/database')
 const OpiniosDate = require('./models/opinios')
