@@ -24,21 +24,21 @@ app.get('/', async(req, res)=>{
 })
 
 app.post('/opinios', async(req, res)=>{
-    const {urlImg}= req.body.urlImg
-    const {name}= req.body.name
-    const {message}= req.body.message
+    const urlImg= req.body.urlImg
+    const name= req.body.name
+    const message= req.body.message
 
 const newOpinion = new OpiniosDate({urlImg:urlImg, name: name, message: message})
 
     try {
 
         await newOpinion.save()
+
         res.status(200).json({msg: 'messagem enviada'})
 
         
     } catch (error) {
       
-
      res.status(500).json({error:'error na req'})
        
     }
