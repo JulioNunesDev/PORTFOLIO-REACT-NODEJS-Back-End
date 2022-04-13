@@ -2,11 +2,14 @@ const express = require('express')
 const app = express()
 require('./config/database')
 const OpiniosDate = require('./models/opinios')
+const cors = require('cors')
+
 
 
 
 
 app.use(express.json())
+app.use(cors())
 
 
 
