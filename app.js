@@ -24,9 +24,11 @@ app.get('/', async(req, res)=>{
 })
 
 app.post('/opinios', async(req, res)=>{
-    const {name, urlImg, message}= req.body
+    const {urlImg}= req.body.urlImg
+    const {name}= req.body.name
+    const {message}= req.body.message
 
-    const newOpinion = new OpiniosDate({name: name, urlImg:urlImg, message: message})
+const newOpinion = new OpiniosDate({urlImg:urlImg, name: name, message: message})
 
     try {
 
