@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 require('./config/database')
-const OpiniosDate = require('./models/opinios')
+const BooksDate = require('./models/books')
 const cors = require('cors')
 
 
@@ -15,24 +15,26 @@ app.use(cors())
 
 
 
-app.get('/', async(req, res)=>{
+app.get('/books', async(req, res)=>{
 
-    OpiniosDate.find({},(error, result)=>{
+    BooksDate.find({},(error, result)=>{
         if(error) return res.send(error)
         res.send(result)
     })
 })
 
-app.post('/opinios', async(req, res)=>{
+app.post('/books', async(req, res)=>{
     const urlImg= req.body.urlImg
-    const name= req.body.name
-    const message= req.body.message
+    const title= req.body.title
+    const description= req.body.description
+    const body= req.body.body
+    const author= req.body.author
 
-const newOpinion = new OpiniosDate({urlImg:urlImg, name: name, message: message})
+const newBooks = new BooksDate({urlImg:urlImg, title: title, description: description, body: body, author: author})
 
     try {
 
-        await newOpinion.save()
+        await newBooks.save()
 
         res.status(200).json({msg: 'messagem enviada'})
 
